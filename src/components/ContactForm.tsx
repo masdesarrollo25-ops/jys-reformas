@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { saveBudgetRequest } from "@/app/actions";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -14,7 +15,7 @@ export default function ContactForm() {
 
     try {
       // USING FORMSUBMIT.CO API
-      const response = await fetch("https://formsubmit.co/ajax/tu_correo@ejemplo.com", {
+      const response = await fetch("https://formsubmit.co/ajax/jys.reformas26@gmail.com", {
         method: "POST",
         body: formData,
         headers: {
@@ -23,6 +24,14 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
+        if (typeof window !== "undefined") {
+          await saveBudgetRequest({
+            name: formData.get("name") as string || "",
+            email: formData.get("email") as string || "",
+            phone: formData.get("phone") as string || "",
+            message: formData.get("message") as string || "",
+          });
+        }
         setStatus("success");
         form.reset();
       } else {
@@ -122,9 +131,6 @@ export default function ContactForm() {
               </p>
             )}
           </form>
-          <div className="mt-8 text-xs text-gray-500 dark:text-gray-400 text-center border-t border-gray-200 dark:border-gray-700/50 pt-6">
-            ⚠️ Nota del desarrollador: Reemplaza <code className="bg-gray-200 dark:bg-gray-800 px-1 rounded">tu_correo@ejemplo.com</code> en <code>ContactForm.tsx</code> con tu correo electrónico de la empresa.
-          </div>
         </div>
       </div>
     </section>

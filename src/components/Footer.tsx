@@ -20,13 +20,14 @@ export default function Footer() {
           <h4 className="text-xl font-semibold mb-4">Contacto</h4>
           <ul className="space-y-2 text-gray-400">
             <li>📍 Alicante y alrededores</li>
-            <li>✉️ tu_correo@ejemplo.com</li>
-            <li>📞 +34 600 000 000</li>
+            <li>✉️ jys.reformas26@gmail.com</li>
+            <li>📞 +34 604 956 347</li>
           </ul>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} J&S Reformas. Todos los derechos reservados.
+      <div className="max-w-6xl mx-auto px-6 mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm flex flex-col items-center gap-2">
+        <p>&copy; {new Date().getFullYear()} J&S Reformas. Todos los derechos reservados.</p>
+        <p className="text-[10px] text-gray-600 opacity-60 font-light hover:opacity-100 transition-opacity">Desarrollado por MAS DESARROLLO</p>
       </div>
     </footer>
   );

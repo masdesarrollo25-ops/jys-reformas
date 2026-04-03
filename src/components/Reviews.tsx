@@ -10,7 +10,7 @@ export default async function Reviews() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-extrabold text-foreground tracking-tight mb-4 transition-colors duration-500">
-            Lo que dicen <span className="text-blue-600 dark:text-blue-400">Nuestros Clientes</span>
+            Lo que dicen <span className="text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] dark:text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">Nuestros Clientes</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto transition-colors duration-500">
             La satisfacción de nuestros clientes es nuestra mejor garantía.

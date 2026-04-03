@@ -24,16 +24,26 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
+        let dbSuccess = true;
         if (typeof window !== "undefined") {
-          await saveBudgetRequest({
+          const res = await saveBudgetRequest({
             name: formData.get("name") as string || "",
             email: formData.get("email") as string || "",
             phone: formData.get("phone") as string || "",
             message: formData.get("message") as string || "",
           });
+          if (!res.success) {
+            dbSuccess = false;
+            console.error("Error from action:", res.message);
+          }
         }
-        setStatus("success");
-        form.reset();
+        
+        if (dbSuccess) {
+          setStatus("success");
+          form.reset();
+        } else {
+          setStatus("error");
+        }
       } else {
         setStatus("error");
       }
@@ -44,18 +54,18 @@ export default function ContactForm() {
 
   return (
     <section id="contacto" className="py-24 bg-gradient-to-b from-background to-gray-50 dark:to-gray-900/20 relative overflow-hidden transition-colors duration-500">
-      <div className="absolute inset-0 bg-blue-500/5 dark:bg-blue-500/10 backdrop-blur-3xl rounded-full blur-[120px] w-1/2 h-1/2 top-0 left-1/4 pointer-events-none transition-all duration-500" />
+      <div className="absolute inset-0 bg-[#D4AF37]/5 dark:bg-[#D4AF37]/10 backdrop-blur-3xl rounded-full blur-[120px] w-1/2 h-1/2 top-0 left-1/4 pointer-events-none transition-all duration-500" />
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-extrabold text-foreground tracking-tight mb-4 transition-colors duration-500">
-            Solicita tu <span className="text-blue-600 dark:text-blue-500">Presupuesto</span>
+            Solicita tu <span className="text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] dark:text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">Presupuesto</span>
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto transition-colors duration-500">
             Cuéntanos sobre tu proyecto de reforma. Te contactaremos lo antes posible con una propuesta personalizada o para agendar una visita.
           </p>
         </div>
 
-        <div className="bg-white/70 dark:bg-gray-800/50 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-gray-100 dark:border-gray-700/50 transition-colors duration-500 group hover:border-blue-500/30">
+        <div className="bg-white/70 dark:bg-gray-800/50 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-gray-100 dark:border-gray-700/50 transition-colors duration-500 group hover:border-[#D4AF37]/30">
           <form onSubmit={handleSubmit} className="space-y-6">
             <input type="hidden" name="_subject" value="Nuevo presupuesto - J&S Reformas" />
             <input type="hidden" name="_template" value="table" />
@@ -69,7 +79,7 @@ export default function ContactForm() {
                   id="name" 
                   name="name" 
                   required 
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-300 hover:bg-white dark:hover:bg-gray-900"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all duration-300 hover:bg-white dark:hover:bg-gray-900"
                   placeholder="Ej. Juan Pérez"
                 />
               </div>
@@ -81,7 +91,7 @@ export default function ContactForm() {
                   id="email" 
                   name="email" 
                   required 
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-300 hover:bg-white dark:hover:bg-gray-900"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all duration-300 hover:bg-white dark:hover:bg-gray-900"
                   placeholder="juan@ejemplo.com"
                 />
               </div>
@@ -94,7 +104,7 @@ export default function ContactForm() {
                 id="phone" 
                 name="phone" 
                 required 
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-300 hover:bg-white dark:hover:bg-gray-900"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all duration-300 hover:bg-white dark:hover:bg-gray-900"
                 placeholder="600 000 000"
               />
             </div>
@@ -106,7 +116,7 @@ export default function ContactForm() {
                 name="message" 
                 required 
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-300 hover:bg-white dark:hover:bg-gray-900 resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all duration-300 hover:bg-white dark:hover:bg-gray-900 resize-none"
                 placeholder="Describe brevemente la reforma que deseas..."
               ></textarea>
             </div>
@@ -114,7 +124,7 @@ export default function ContactForm() {
             <button 
               type="submit" 
               disabled={status === "loading"}
-              className="w-full md:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 m-auto"
+              className="w-full md:w-auto px-8 py-4 bg-gradient-to-r from-[#D4AF37] via-[#FACC15] to-[#B8860B] border border-[#d4af37]/50 shadow-[0_0_15px_rgba(212,175,55,0.2)] text-black hover:brightness-110 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2 m-auto"
             >
               {status === "loading" ? "Enviando..." : "Pedir Presupuesto"}
             </button>

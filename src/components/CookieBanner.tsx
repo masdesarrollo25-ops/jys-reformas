@@ -28,7 +28,7 @@ export default function CookieBanner() {
       <div>
         <button 
           onClick={acceptCookies}
-          className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors whitespace-nowrap shadow-md focus:ring-2 focus:ring-blue-500 outline-none"
+          className="px-6 py-2 bg-gradient-to-r from-[#D4AF37] via-[#FACC15] to-[#B8860B] border border-[#d4af37]/50 shadow-[0_0_15px_rgba(212,175,55,0.2)] text-black hover:brightness-110 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] text-white font-semibold rounded-lg transition-colors whitespace-nowrap shadow-md focus:ring-2 focus:ring-[#D4AF37] outline-none"
         >
           Aceptar
         </button>

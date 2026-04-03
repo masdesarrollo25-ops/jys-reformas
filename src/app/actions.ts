@@ -85,17 +85,24 @@ export async function saveReview(prevState: any, formData: FormData): Promise<{ 
 }
 
 export async function saveBudgetRequest(data: { name: string, email: string, phone: string, message: string }) {
-  if (supabase) {
-    try {
-      const { error } = await supabase.from('budgets').insert([{
-        ...data,
-        date: new Date().toISOString()
-      }]);
-      if (error) return { success: false };
-      return { success: true };
-    } catch(e) {
-      return { success: false };
-    }
+  if (!supabase) {
+    console.error("Excepción: Supabase client no está inicializado. Faltan variables de entorno.");
+    return { success: false, message: "Error de configuración de la base de datos." };
   }
-  return { success: true };
+  
+  try {
+    const { error } = await supabase.from('budgets').insert([{
+      ...data,
+      date: new Date().toISOString()
+    }]);
+    
+    if (error) {
+      console.error("Supabase insert error in saveBudgetRequest:", error);
+      return { success: false, message: "Hubo un error al guardar tu presupuesto en la BBDD." };
+    }
+    return { success: true };
+  } catch(e) {
+    console.error("Exception in saveBudgetRequest:", e);
+    return { success: false, message: "Error inesperado al conectar con la base de datos." };
+  }
 }

@@ -58,14 +58,14 @@ export default function Services() {
 
   return (
     <section className="py-24 bg-white dark:bg-gray-800/20 transition-colors duration-500 relative">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-[80px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <div className="max-w-2xl">
             <h2 className="text-4xl font-extrabold text-foreground tracking-tight mb-4 transition-colors">
-              Nuestros <span className="text-blue-600 dark:text-blue-400">Servicios</span>
+              Nuestros <span className="text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] dark:text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">Servicios</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 transition-colors">
               Soluciones integrales para el mantenimiento y mejora de tu hogar, ejecutadas por profesionales de confianza.
@@ -73,7 +73,7 @@ export default function Services() {
           </div>
           <a 
             href="#contacto" 
-            className="hidden md:inline-flex mt-6 md:mt-0 px-6 py-3 bg-gray-100 dark:bg-gray-800 text-foreground font-semibold rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-all duration-300"
+            className="hidden md:inline-flex mt-6 md:mt-0 px-6 py-3 bg-gray-100 dark:bg-gray-800 text-foreground font-semibold rounded-xl hover:bg-gradient-to-r from-[#D4AF37] via-[#FACC15] to-[#B8860B] border border-[#d4af37]/50 shadow-[0_0_15px_rgba(212,175,55,0.2)] text-black hover:text-white dark:hover:bg-gradient-to-r from-[#D4AF37] via-[#FACC15] to-[#B8860B] border border-[#d4af37]/50 shadow-[0_0_15px_rgba(212,175,55,0.2)] text-black transition-all duration-300"
           >
             Presupuesto General
           </a>
@@ -83,13 +83,13 @@ export default function Services() {
           {services.map((service, i) => (
             <div
               key={i}
-              className="bg-gray-50 dark:bg-gray-900/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-2xl hover:border-blue-500/50 transition-all duration-500 group flex flex-col h-full"
+              className="bg-gray-50 dark:bg-gray-900/50 rounded-3xl p-8 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-2xl hover:border-[#D4AF37]/50 transition-all duration-500 group flex flex-col h-full"
             >
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#D4AF37] to-[#B8860B] flex items-center justify-center mb-6 shadow-lg shadow-[0_4px_14px_rgba(212,175,55,0.3)] group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
               
-              <h3 className="font-bold text-2xl mb-4 text-foreground transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400">{service.title}</h3>
+              <h3 className="font-bold text-2xl mb-4 text-foreground transition-colors group-hover:text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] dark:group-hover:text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">{service.title}</h3>
               
               <p className="text-gray-600 dark:text-gray-400 mb-8 flex-grow transition-colors">
                 {service.desc}
@@ -97,7 +97,7 @@ export default function Services() {
               
               <a 
                 href="#contacto" 
-                className="mt-auto flex items-center text-blue-600 dark:text-blue-400 font-semibold group/btn"
+                className="mt-auto flex items-center text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] dark:text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)] font-semibold group/btn"
               >
                 Solicitar para {service.title.toLowerCase()}
                 <svg className="w-5 h-5 ml-2 transform group-hover/btn:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

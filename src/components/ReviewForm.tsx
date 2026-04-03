@@ -19,7 +19,7 @@ export default function ReviewForm() {
             id="nameR" 
             name="name" 
             required 
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-blue-500 outline-none transition-all" 
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all" 
             placeholder="Tu nombre" 
           />
         </div>
@@ -48,7 +48,7 @@ export default function ReviewForm() {
             name="comment" 
             required 
             rows={3} 
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-blue-500 outline-none transition-all resize-none" 
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50 text-foreground focus:ring-2 focus:ring-[#D4AF37] outline-none transition-all resize-none" 
             placeholder="¿Qué te pareció nuestro trabajo?"
           ></textarea>
         </div>
@@ -56,7 +56,7 @@ export default function ReviewForm() {
         <button 
           type="submit" 
           disabled={isPending} 
-          className="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg disabled:opacity-70 flex justify-center items-center"
+          className="w-full py-4 bg-gradient-to-r from-[#D4AF37] via-[#FACC15] to-[#B8860B] border border-[#d4af37]/50 shadow-[0_0_15px_rgba(212,175,55,0.2)] text-black hover:brightness-110 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg disabled:opacity-70 flex justify-center items-center"
         >
           {isPending && (
             <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

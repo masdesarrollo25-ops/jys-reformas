@@ -24,9 +24,9 @@ export default function HeroVideo() {
           Reparaciones del hogar rápidas y profesionales
         </p>
 
-        <button className="mt-8 bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl text-lg">
+        <a href="#contacto" className="mt-8 bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl text-lg inline-block transition-transform hover:scale-105">
           Solicitar presupuesto
-        </button>
+        </a>
 
       </div>
     </section>

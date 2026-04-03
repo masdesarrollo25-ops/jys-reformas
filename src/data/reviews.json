@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "name": "María González",
+    "rating": 5,
+    "comment": "Un trabajo impecable. Cumplieron con los plazos y dejaron todo muy limpio. Muy recomendables.",
+    "date": "2026-03-20T10:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "Carlos Rodríguez",
+    "rating": 4,
+    "comment": "La reforma del baño quedó estupenda. El equipo es muy profesional.",
+    "date": "2026-03-15T14:30:00.000Z"
+  }
+]
